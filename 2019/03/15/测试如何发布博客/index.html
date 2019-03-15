@@ -1,11 +1,19 @@
-<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 测试如何发布博客 · 开弓</title><meta name="description" content="测试如何发布博客 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?v=2018"><link rel="stylesheet" href="/css/style.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="开弓"></head><body><div class="wrap"><header><h1 class="title">Jeremy's Blog</h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://jeremyfan.name" target="_blank">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">测试如何发布博客</h1><div class="post-info">Mar 15, 2019</div><div class="post-content"><blockquote>
+<!DOCTYPE html><html><head><meta name="generator" content="Hexo 3.8.0"><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 测试如何发布博客 · 开弓</title><meta name="description" content="测试如何发布博客 - John Doe"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico?v=2018"><link rel="stylesheet" href="/css/style.css"><link rel="search" type="application/opensearchdescription+xml" href="http://yoursite.com/atom.xml" title="开弓"></head><body><div class="wrap"><header><h1 class="title">Jeremy's Blog</h1><ul class="nav nav-list"><li class="nav-list-item"><a class="nav-list-link" href="/" target="_self">HOME</a></li><li class="nav-list-item"><a class="nav-list-link" href="/archives/" target="_self">ARCHIVE</a></li><li class="nav-list-item"><a class="nav-list-link" href="http://jeremyfan.name" target="_blank">ABOUT</a></li></ul></header><main class="container"><div class="post"><article class="post-block"><h1 class="post-title">测试如何发布博客</h1><div class="post-info">Mar 15, 2019</div><div class="post-content"><p>avaScript 中的数值类型用起来很简单，但内部如何存储却是有点复杂。我们在使用的过程也偶尔会遇到一些问题，比如为什么整数被截断了，为什么小数计算不精准了。</p>
+<p>这篇文章就主要来讨论这些问题，具体来说，在 JavaScript 中：</p>
+<ol>
+<li>数值是如何存储的？</li>
+<li>为什么能够精确表示的整数范围是 -9007199254740991~9007199254740991？</li>
+<li>为什么能够表示的最大数值范围是 5e-324~1.7976931348623157e+308？</li>
+<li>为什么 0.1+0.2 不等于 0.3？</li>
+</ol>
+<blockquote>
 <p>avaScript 中的数值类型用起来很简单，但内部如何存储却是有点复杂。我们在使用的过程也偶尔会遇到一些问题，比如为什么整数被截断了，为什么小数计算不精准了。</p>
 <p>这篇文章就主要来讨论这些问题，具体来说，在 JavaScript 中：</p>
 <ol>
 <li>数值是如何存储的？</li>
 <li>为什么能够精确表示的整数范围是 <code>-9007199254740991~9007199254740991</code>？</li>
 <li>为什么能够表示的最大数值范围是 <code>5e-324~1.7976931348623157e+308</code>？</li>
-<li>为什么 <code>0.1+0.2</code> 不等于 0.3？</li>
+<li>为什么 0.1+0.2 不等于 0.3？</li>
 </ol>
 <h2 id="一、数值的存储"><a href="#一、数值的存储" class="headerlink" title="一、数值的存储"></a>一、数值的存储</h2><p>提到 JavaScript 的数值存储，就不能不提 IEEE754 标准，因为 JavaScript 就是以 IEEE754 标准的双精度浮点数存储数值的。</p>
 <p>按照 IEEE754 标准，计算机中的数值都以二进制科学计数法表示，也就是 <code>1.0101 * 2e+5</code> 这种（随便写的一个数），可以认为一个数值是由<strong>符号（sign）</strong>、<strong>指数部分（exponent）</strong>、<strong>小数部分（fraction）</strong>三块组成。</p>
