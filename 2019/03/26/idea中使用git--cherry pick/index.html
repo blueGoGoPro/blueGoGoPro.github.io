@@ -79,13 +79,20 @@
 
 
 
-<meta property="og:type" content="website">
+<meta name="description" content="idea中使用git— cherry pick场景概述多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？ 首先看一下我们可能会遇到的问题：  功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。  上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间">
+<meta property="og:type" content="article">
 <meta property="og:title" content="开弓">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/26/idea中使用git--cherry pick/index.html">
 <meta property="og:site_name" content="开弓">
+<meta property="og:description" content="idea中使用git— cherry pick场景概述多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？ 首先看一下我们可能会遇到的问题：  功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。  上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/Users/ds/Library/Application%20Support/typora-user-images/image-20190524143256061.png">
+<meta property="og:image" content="http://yoursite.com/Users/ds/Library/Application%20Support/typora-user-images/image-20190524143031962.png">
+<meta property="og:updated_time" content="2019-05-24T08:28:31.588Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开弓">
+<meta name="twitter:description" content="idea中使用git— cherry pick场景概述多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？ 首先看一下我们可能会遇到的问题：  功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。  上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间">
+<meta name="twitter:image" content="http://yoursite.com/Users/ds/Library/Application%20Support/typora-user-images/image-20190524143256061.png">
 
 
 
@@ -115,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/26/idea中使用git--cherry pick/">
 
 
 
 
 
-  <title>开弓</title>
+  <title> | 开弓</title>
   
 
 
@@ -140,8 +147,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,172 +220,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/idea中使用git--基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="John Doe">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="开弓">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/30/idea中使用git--基础操作/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-30T13:38:02+08:00">
-                2019-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>idea对git做了很好的支持。在idea中，我们可以完成全部的常见git版本管理操作，无需命令行或者其他的git客户端。本文将介绍版本管理各环节中需要的操作及按钮位置等。纯新手向文章，适合第一次接触idea+git的同学了解入门。</p>
-<p>&lt;!more&gt;</p>
-<h4 id="检出"><a href="#检出" class="headerlink" title="检出"></a>检出</h4><p>第一步：从远程仓库获取代码，步骤如下</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190524164007310.png" alt="image-20190524164007310"></p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190524164040148.png" alt="image-20190524164040148"></p>
-<p>填写 git仓库地址,选择导入的本地文件夹,填写文件夹名称 ,点击clone,即可将远程的仓库的内容clone到本地.</p>
-<!--git支持两种用户http和ssh两种网络协议，可以根据项目情况具体选择。如果使用http协议，第一次导出时需要填写用户名密码,而如果使用ssh协议，则需要在本地生成ssh公钥私钥，并将公钥添加只git远程仓库添加信任。具体方法请百度检索"git添加ssh密钥"-->
-<h4 id="提交"><a href="#提交" class="headerlink" title="提交"></a>提交</h4><p>有内容提交时：点击右上角的绿色按钮（对勾或者向上的箭头，不同idea版本按钮不同）</p>
-<p>里面的提交内容的勾选,以及填写提交信息的内容一样.但下方commit按钮和svn含义不同,</p>
-<p>Git 中的commit 是提交到本地的版本库中,并不会同步到远程仓库中.如果要提交到远程仓库,需要点击commit后面的小三角,选择commit and push,在接下来的弹框中点击push,即可将提交推送至远程仓库.</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190528171251296.png" alt="image-20190528171251296"></p>
-<!--推送至远程仓库的过程中，可能存在本地新提交代码与远程库代码冲突。提交时解决冲突会比更新时解决情况更复杂，不可控因素更多，所以建议推送之前先更新一次代码-->
-<h4 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h4><p>同样:点击idea右上角的vcs向下的箭头,弹出的对话框中点击ok即可.</p>
-<p>默认选中的Merge 和using Stash 分别代表合并到当前分支和清空工作区.适用.</p>
-<h4 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h4><p>1.更新时冲突</p>
-<p>如果当前代码和远程库的代码中存在冲突,idea会弹框警告,操作流程和svn一样,视情况选择右边的三个选项:</p>
-<p>Accept Yours: 完全使用你的代码，这将覆盖远程分支的代码，</p>
-<p>Accept Theirs : 完全使用远程分支的代码，这将覆盖你的代码</p>
-<p>Merge ：手工合并</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530110748690.png" alt="image-20190530110748690"></p>
-<p>如果不是特别清晰本地代码和远程代码冲突的原因以及解决方案，建议使用Merge方式手工合并。</p>
-<p>点击Merge，会弹出如下画面。</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530110833886.png" alt="image-20190530110833886"></p>
-<p>由左至右三列代码分别是： 你的代码，合并后结果代码，远程仓库的代码。</p>
-<p>idea会标记出不一样的地方。’&gt;&gt;’ 代表将当前代码应用到结果集，’X’ 代表舍弃当前代码。酌情取舍即可</p>
-<p>2.提交时冲突</p>
-<p>如果提交时本地代码和远程仓库有冲突,idea会提示,并要求你推送之前解决冲突</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530112050376.png" alt="image-20190530112050376"></p>
-<p>此时:点击merge,idea会先执行更新操作(pull),将远程仓库代码拉取到本地,然后弹出和更新时冲突一样的弹框,点击操作就好.</p>
-<p>如果解决冲突失败,再次点击提交时发现:</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530112154792.png" alt="image-20190530112154792"></p>
-<p>这是因为代码已经提交至本地仓库,所以会显示没有可以提交的内容,但实际上内容并未推送到远程仓库,需要手动推送</p>
-<p>在需要提交的地方右键,如图按顺序选择即可.</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530112259033.png" alt="image-20190530112259033"></p>
-<h4 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h4><p>以上操作都是基于当前分支操作的,且当前分支已经关联到远程仓库对应的分支.</p>
-<p>idea可以在导航栏cvs处和右下角git处操作git分支：包含远程分支和本地分支。在对应的分支下也有相应的checkout 和merge操作</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530112539568.png" alt="image-20190530112539568"></p>
-<p>其中:new branch 是创建新的分支</p>
-<p>Local branches 是指本地的<strong>其他</strong>分支,最下面一行小字, current branch:  后面才是本地的当前分支,remoteBranches 是指关联的远程库上的分支.</p>
-<p>切换本地分支:点击对应本地分支后面的小三角,选择checkout即可切换到对应分支,此时在idea中修改,就是在对应的分支下修改.</p>
-<h4 id="git-bash-支持"><a href="#git-bash-支持" class="headerlink" title="git bash 支持"></a>git bash <strong>支持</strong></h4><p>神奇的是:idea的命令行 是支持gitbash命令的:</p>
-<p>在idea的terminal界面下，可以使用git命令。以此完成一些复杂的操作</p>
-<p><img src="/Users/ds/Library/Application Support/typora-user-images/image-20190530133557827.png" alt="image-20190530133557827"></p>
-<p>喜欢命令行的小伙伴,可以在这里开始你的表演了,完全不需要切出去,idea真心强</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
 
   
 
@@ -409,9 +252,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/26/idea中使用git--cherry pick/" itemprop="url">Untitled</a></h1>
+          <h1 class="post-title" itemprop="name headline"></h1>
         
 
         <div class="post-meta">
@@ -461,9 +302,7 @@
       
 
       
-        
-          
-            <h2 id="idea中使用git—-cherry-pick"><a href="#idea中使用git—-cherry-pick" class="headerlink" title="idea中使用git— cherry pick"></a>idea中使用git— cherry pick</h2><h4 id="场景概述"><a href="#场景概述" class="headerlink" title="场景概述"></a>场景概述</h4><p>多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？</p>
+        <h2 id="idea中使用git—-cherry-pick"><a href="#idea中使用git—-cherry-pick" class="headerlink" title="idea中使用git— cherry pick"></a>idea中使用git— cherry pick</h2><h4 id="场景概述"><a href="#场景概述" class="headerlink" title="场景概述"></a>场景概述</h4><p>多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？</p>
 <p>首先看一下我们可能会遇到的问题：</p>
 <ol>
 <li><p>功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。</p>
@@ -523,8 +362,6 @@
 <p>这篇博客我前后写了四五个版本，每次写完回过头来自己看都觉得乱，不知所云。</p>
 <p>解决问题就要先明确问题，我希望能简洁， 清晰的说明问题，然后给出解决方案。目前这个版本，至少叙述方式上自己还觉得可以。因为是工具的使用介绍，所以文章的没什么深度，只是希望给刚上手的同学一点方向就好。</p>
 
-          
-        
       
     </div>
     
@@ -541,12 +378,28 @@
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/30/idea中使用git--基础操作/" rel="prev" title>
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -556,10 +409,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -567,6 +421,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -587,8 +445,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -639,6 +506,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#idea中使用git—-cherry-pick"><span class="nav-number">1.</span> <span class="nav-text">idea中使用git— cherry pick</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#场景概述"><span class="nav-number">1.0.1.</span> <span class="nav-text">场景概述</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境配置"><span class="nav-number">1.0.2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解决方案"><span class="nav-number">1.0.3.</span> <span class="nav-text">解决方案</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#同步方式"><span class="nav-number">1.0.4.</span> <span class="nav-text">同步方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#方式一-：cherry-pick"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">方式一 ：cherry pick</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -772,6 +655,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
