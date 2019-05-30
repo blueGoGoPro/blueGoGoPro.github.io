@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/Users/ds/Library/Application%20Support/typora-user-images/image-20190524143256061.png">
 <meta property="og:image" content="http://yoursite.com/Users/ds/Library/Application%20Support/typora-user-images/image-20190524143031962.png">
-<meta property="og:updated_time" content="2019-05-24T08:28:31.588Z">
+<meta property="og:updated_time" content="2019-05-30T06:21:07.860Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="开弓">
 <meta name="twitter:description" content="idea中使用git— cherry pick场景概述多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？ 首先看一下我们可能会遇到的问题：  功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。  上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间">
@@ -310,7 +310,7 @@
 <li><p>上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间和上线时间均提前于B，那么A开发上线时，基于共同分支打包，势必包含B在开发中的代码</p>
 </li>
 <li><p>文件冲突：通性问题，merge即可，不讨论</p>
-<p>&lt;!more&gt;</p>
+<a id="more"></a>
 </li>
 </ol>
 <h4 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h4><p>针对上面的问题，我们准备如下环境配置：</p>
