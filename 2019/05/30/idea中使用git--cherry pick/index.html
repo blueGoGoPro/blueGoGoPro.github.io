@@ -88,7 +88,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/05/30/idea中使用git--cherry%20pick/idea中使用git--cherry%20pick/image-20190524143256061.png">
 <meta property="og:image" content="http://yoursite.com/2019/05/30/idea中使用git--cherry%20pick/idea中使用git--cherry%20pick/image-20190524143031962.png">
-<meta property="og:updated_time" content="2019-05-31T03:09:51.179Z">
+<meta property="og:updated_time" content="2019-05-31T03:12:49.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="idea中使用git— cherry pick">
 <meta name="twitter:description" content="##  场景概述多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？ 首先看一下我们可能会遇到的问题：  功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。  上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间和上线时间均提前于B，那么A开发上线时">
@@ -348,7 +348,7 @@
 <li>过滤commit log，branch 选择All 或者select 那里选HEAD + dev，user选me</li>
 <li>找到所有的需要合并的提交记录，按时间正序一个一个的cherry-Pick（在log上右键即可看到如下候选目录）</li>
 </ol>
-<p><img src="idea中使用git--cherry pick/image-20190524143031962.png" alt="image-20190524143031962"></p>
+<p><img src="./idea中使用git--cherry pick/image-20190524143031962.png" alt="image-20190524143031962"></p>
 <p>[^2]:如果使用idea cherry pick，任务开始后，如果想终止任务，请点击 abort 按钮而不是关闭对话框，关闭对话框无法回滚已经产生的cherry pick 代码。</p>
 <ol start="4">
 <li>cherry pick 完成后，即将本次提交文件的改变拉取至本地HEAD分支了，简单验证一下，没有问题，commit and push。将本次更新提交并推送至远程库</li>
@@ -395,6 +395,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/05/31/testImage/" rel="prev" title="testImage">
+                testImage <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -471,7 +475,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

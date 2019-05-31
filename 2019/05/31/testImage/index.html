@@ -79,13 +79,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="开弓">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="测试图片这下面插入了一张图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="testImage">
+<meta property="og:url" content="http://yoursite.com/2019/05/31/testImage/index.html">
 <meta property="og:site_name" content="开弓">
+<meta property="og:description" content="测试图片这下面插入了一张图片">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/05/31/testImage/test.png">
+<meta property="og:updated_time" content="2019-05-31T09:04:49.645Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="开弓">
+<meta name="twitter:title" content="testImage">
+<meta name="twitter:description" content="测试图片这下面插入了一张图片">
+<meta name="twitter:image" content="http://yoursite.com/2019/05/31/testImage/test.png">
 
 
 
@@ -115,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/31/testImage/">
 
 
 
 
 
-  <title>开弓</title>
+  <title>testImage | 开弓</title>
   
 
 
@@ -140,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -214,9 +219,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -246,9 +251,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/31/testImage/" itemprop="url">testImage</a></h1>
+          <h1 class="post-title" itemprop="name headline">testImage</h1>
         
 
         <div class="post-meta">
@@ -298,13 +301,9 @@
       
 
       
-        
-          
-            <h4 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h4><p>这下面插入了一张图片</p>
+        <h4 id="测试图片"><a href="#测试图片" class="headerlink" title="测试图片"></a>测试图片</h4><p>这下面插入了一张图片</p>
 <img src="/2019/05/31/testImage/test.png" title="This is an example image">
 
-          
-        
       
     </div>
     
@@ -321,12 +320,28 @@
       
 
       
+      
+      
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/30/idea中使用git--cherry pick/" rel="next" title="idea中使用git— cherry pick">
+                <i class="fa fa-chevron-left"></i> idea中使用git— cherry pick
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
       
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -336,266 +351,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/idea中使用git--cherry pick/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="开工">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="开弓">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/30/idea中使用git--cherry pick/" itemprop="url">idea中使用git— cherry pick</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-30T14:34:23+08:00">
-                2019-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>## </p>
-<h4 id="场景概述"><a href="#场景概述" class="headerlink" title="场景概述"></a>场景概述</h4><p>多人协同迭代一个已经上线的项目，每人负责不同的功能单元，测试和上线时间互不相关。这样的场景下代码版本如何管理呢？git如何使用更有效率？</p>
-<p>首先看一下我们可能会遇到的问题：</p>
-<ol>
-<li><p>功能丢失：如果 A,B两开发基于不同分支开发。各自完成开发后部署时，基于各自的分支打包，会丢失队友的代码。</p>
-</li>
-<li><p>上线未开发完成的功能：如果A,B基于同一分支开发。A的开发时间和上线时间均提前于B，那么A开发上线时，基于共同分支打包，势必包含B在开发中的代码</p>
-</li>
-<li><p>文件冲突：通性问题，merge即可，不讨论</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/30/idea中使用git--cherry pick/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </li></ol></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/30/idea中使用git--基础操作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="开工">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="开弓">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/05/30/idea中使用git--基础操作/" itemprop="url">Untitled</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-30T13:38:02+08:00">
-                2019-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>idea对git做了很好的支持。在idea中，我们可以完成全部的常见git版本管理操作，无需命令行或者其他的git客户端。本文将介绍版本管理各环节中需要的操作及按钮位置等。纯新手向文章，适合第一次接触idea+git的同学了解入门。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/05/30/idea中使用git--基础操作/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -603,6 +363,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -623,8 +387,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -666,6 +439,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#测试图片"><span class="nav-number">1.</span> <span class="nav-text">测试图片</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -799,6 +588,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
